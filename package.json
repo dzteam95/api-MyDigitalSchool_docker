@@ -1,0 +1,22 @@
+{
+  "name": "api-mydigitalschool",
+  "version": "1.0.0",
+  "description": "L’objectifs de ce projet est de développer une API Rest avec node.js qui sera connectée au cloud avec uncluster MongoDB.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Express",
+    "RestApi",
+    "MongoDB",
+    "Mongosse"
+  ],
+  "author": "nabil",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.20"
+  }
+}

@@ -1,0 +1,66 @@
+
+# version du fichier docker-compose.yml
+version : ' 2 '
+
+# Services (conteneurs Docker)
+services :
+
+  # Service de base de données Mongo
+  mongo_one :
+
+    container_name : mongoset1
+    image : mongo
+    command: mlingod --replset my-mongo-set
+    # Nous utilisons le volume de données mongostorage et nous utiliserons le chemin / data / db pour la base de données à l'intérieur du conteneur
+    volumes :
+      - mongostorage: / data / db
+    # Exposer un port MongoDB auquel se connecter
+    # et mappez ce port sur le port interne 27017 qui est utilisé par MongoDB
+    expose:
+      - 27017
+    ports :
+      -  27017: 27017
+         networks:
+           - my-mongo-cluseter
+
+
+  mongo_two :
+
+    container_name : mongoset2
+    image : mongo
+    command: mlingod --replset my-mongo-set
+    # Nous utilisons le volume de données mongostorage et nous utiliserons le chemin / data / db pour la base de données à l'intérieur du conteneur
+    volumes :
+      - mongostorage: / data / db
+    # Exposer un port MongoDB auquel se connecter
+    # et mappez ce port sur le port interne 27018 qui est utilisé par MongoDB
+    expose:
+      - 27017
+    ports :
+      -  27017: 27018
+         networks:
+           - my-mongo-cluseter
+
+ mongo_three:
+
+      container_name: mongoset3
+      image: mongo
+      command: mlingod --replset my-mongo-set
+      # Nous utilisons le volume de données mongostorage et nous utiliserons le chemin / data / db pour la base de données à l'intérieur du conteneur
+      volumes:
+        - mongostorage: / data / db
+      # Exposer un port MongoDB auquel se connecter
+      # et mappez ce port sur le port interne 27018 qui est utilisé par MongoDB
+      expose:
+        - 27017
+      ports:
+        - 27017: 27018
+          networks:
+            - my-mongo-cluseter
+
+
+
+
+
+
+
